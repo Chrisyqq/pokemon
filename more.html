@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/pokemonpage.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+<body class="more">
+<div class="">
+    <a href="moremessage.html">
+    <div class="pokemon-page-body">
+        <div class="more-box more-box-img-message red-point-tishi">
+            <p>消息</p>
+        </div>
+    </div>
+    </a>
+    <a href="moreaboutus.html">
+    <div class="pokemon-page-body">
+        <div class="more-box more-box-img-aboutus">
+            <p>关于我们</p>
+        </div>
+    </div>
+    </a>
+    <a href="moresuggestion.html">
+    <div class="pokemon-page-body">
+        <div class="more-box more-box-img-suggestion">
+            <p>意见反馈</p>
+        </div>
+    </div>
+    </a>
+    <a href="moreclose.html">
+    <div class="pokemon-page-body">
+        <div class="more-box more-box-img-closeabout">
+            <p>关闭</p>
+        </div>
+    </div>
+    </a>
+</div>
+</body>
+<script>
+    (function () {
+        $('.pokemon-page-body').click(function () {
+            $(window.parent.document).find('#pokemonpagehead span').text($(this).find('p').text());
+        })
+    })();
+</script>
+</html>

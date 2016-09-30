@@ -1,0 +1,73 @@
+<!DOCTYPE>
+<html xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="css/pokemonstyle.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <title>pokemon</title>
+</head>
+<body>
+<div class="pokemon-page-head" id="pokemonpagehead">
+    <span>最新活动</span>
+    <div id="pokemonClose" class="pokemon-close"></div>
+</div>
+<div id="pokemonIframe" class="pokemon-iframe">
+    <iframe id="asas" src="newactive.html" name="iFrame1"></iframe>
+</div>
+<div id="pokemon" class="pokemonbox">
+
+    <div class="pokemonbox-inside">
+        <div id="pokemonboxInsideLeft" class="pokemonbox-inside-left">
+            <div class="inside-left-serve">
+                <a href="roadbank.html" target="iFrame1"><div class="serve-box active">
+                    <div class="serve-box-img roadbank"></div>
+                    <span>流量银行</span>
+                </div></a>
+                <a href="newactive.html" target="iFrame1"><div class="serve-box">
+                    <div class="serve-box-img newactive"></div>
+                    <span>最新活动</span>
+                </div></a>
+                <a href="vip.html" target="iFrame1"><div class="serve-box">
+                    <div class="serve-box-img vip"></div>
+                    <span>VIP</span>
+                </div></a>
+                <a href="collect.html" target="iFrame1"><div class="serve-box">
+                    <div class="serve-box-img collect"></div>
+                    <span>收藏</span>
+                </div></a>
+                <a href="more.html" target="iFrame1">
+                    <div class="serve-box red-point-tishi">
+                        <div class="serve-box-img more"></div>
+                        <span>更多</span>
+                    </div>
+                </a>
+            </div>
+            <div class="inside-left-no-serve">
+
+            </div>
+        </div>
+        <div id="" class="pokemonbox-inside-right">
+            <div class="pokemonbox-inside-right-bk">
+                <p><span id="horizontallinenum" style="font-size: 14px">60</span>%</p>
+                <div id="flowMoveBox" class="pokemonbox-inside-right-bkblue">
+                    <div class="flow-move">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+<script src="js/pokemonball.js"></script>
+<script>
+    (function () {
+        $('.serve-box').click(function () {
+            $('#pokemonpagehead span').text($(this).text());
+        })
+    })();
+
+</script>
+</html>

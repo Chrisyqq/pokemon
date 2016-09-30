@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/pokemonpage.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div class="">
+    <div class="cash-exchange-head">
+        <span class="left">现金兑换卷</span>
+        <span class="right">100元现金卷</span>
+    </div>
+    <div class="cash-exchange-time">
+        <div class="left">
+            <p>有效期:</p>
+            <p>来源:</p>
+        </div>
+        <div class="right">
+            <p>2016年6月16日</p>
+            <p>国庆节活动</p>
+        </div>
+    </div>
+    <div class="pokemon-page-body" style="margin-top: 10px">
+        <div class="explain-flow">
+            <div class="head">兑换说明</div>
+            <p>大数手机用户都是在武汉本地上网，武汉电信充分考虑用户需求。</p>
+        </div>
+    </div>
+    <div class="check-select">
+        <button class="go-see">再去看看</button>
+        <button id="hid" class="chose-it active">确认兑换</button>
+    </div>
+    <div class="check-result cash-exchange-result">
+        <div class="check-result-head">
+            兑换成功
+        </div>
+        <div class="check-result-body vip-flow-result">
+            <p>您已成功兑换<span>100元话费。</span>即将在24小
+                时内到账。</p>
+        </div>
+        <div class="check-result-end">
+            <button>确定</button>
+        </div>
+    </div>
+</div>
+<script>
+    $('#hid').click(function () {
+        $('.check-result').css('display','block')
+    })
+</script>
+
+</body>
+</html>
