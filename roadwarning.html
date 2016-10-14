@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/pokemonpage.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/TouchSlide.1.1.js"></script>
+</head>
+<body class="roadbank">
+<div class="roadwarning">
+    <div class="pokemon-page-body">
+        <div class="dinggou-message">
+            <p><span>您本月剩余流量仅剩</span><span class="dinggou-message-fee">18.23%</span></p>
+        </div>
+        <p class="road-title">为了您的正常使用, 推荐您订购: </p>
+        <div class="explain-flow roadwarning-explain-flow">
+            <div class="check-select">
+                <button class="go-see">再去看看</button>
+                <button id="hid" class="chose-it active">确认订购</button>
+            </div>
+        </div>
+    </div>
+    <div class="check-result">
+        <div class="check-result-head"></div>
+        <div class="check-result-body">
+            <p>20元100M一次性流量包<span></span></p>
+        </div>
+        <div class="check-result-end">
+            <button>确认</button>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    (function () {
+        $("#hid").click(function () {
+            var a="success";
+            if(a="success"){
+                $('.check-result').css('display','block');
+                $('.check-result-head').text("订购申请成功");
+                $('.check-result-body span').text("申请成功");
+            }else {
+                $('.check-result').css('display','block');
+                $('.check-result-head').text("订购申请失败");
+                $('.check-result-body span').text("申请成功");
+            }
+        })
+    })();
+
+</script>
+</html>
