@@ -9,6 +9,9 @@ var dateStart,dateEnd,starw,starh;
     var flowMoveBox=document.getElementById("flowMoveBox");
     var objWH=obj.clientHeight;
     var horizontalLineNum=document.getElementById("horizontallinenum").innerText;
+    var flowIn=document.getElementById("flowin");
+    var allBk=document.getElementById("allbk");
+    var bigBk=document.getElementById("bigbk");
     var pokemonboxInsideLeft=document.getElementById("pokemonboxInsideLeft");
     var pokemonIframe=document.getElementById("pokemonIframe");
     var pokemonPageHead=document.getElementById("pokemonpagehead");
@@ -16,9 +19,11 @@ var dateStart,dateEnd,starw,starh;
     //隐藏
     function hiddenball() {
         if(obj.clientWidth==objWH){
-            obj.style.opacity="0.4";
+            allBk.style.opacity="0.4";
         }
     }
+
+    flowIn.style.top=(100-horizontalLineNum)+"%";
 
     //判断是否第一次打开这个浏览器,并且保存位置
     if (localStorage.getItem('msgw')==null){
@@ -47,6 +52,7 @@ var dateStart,dateEnd,starw,starh;
 
     //点击 开始
     function touchStart(event) {
+        allBk.style.opacity="1";
         dateStart=new Date();
         if(obj.clientWidth==objWH){
             starw=parseInt(event.touches[0].pageX)-obj.offsetLeft;
@@ -98,6 +104,7 @@ var dateStart,dateEnd,starw,starh;
                 pokemonPageHead.style.bottom=parseInt(window.innerHeight*0.05+270)+50;
                 var ballStyle=obj.getAttribute("name");
                 pokemonboxInsideLeft.style.display="block";
+                bigBk.style.display="block";
                 switch (ballStyle)
                 {
                     case "red":
@@ -117,6 +124,8 @@ var dateStart,dateEnd,starw,starh;
             }else{
                 //判断张开后 点击是否在小圆球内
                 if(starw>0 && starw<60){
+                    bigBk.style.display="none";
+                    allBk.style.opacity="1";
                     pokemonboxInsideLeft.style.display="none";
                     pokemonIframe.style.display="none";
                     pokemonPageHead.style.display="none";
