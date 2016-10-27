@@ -4,6 +4,9 @@
 
 //拖动球
 var dateStart,dateEnd,starw,starh;
+
+var FreeHeight=0;//这里可以调整高度
+var FreeWeight=0;//这里可以左右移动
 (function () {
     var obj=document.getElementById("pokemon");
     var flowMoveBox=document.getElementById("flowMoveBox");
@@ -15,6 +18,12 @@ var dateStart,dateEnd,starw,starh;
     var pokemonboxInsideLeft=document.getElementById("pokemonboxInsideLeft");
     var pokemonIframe=document.getElementById("pokemonIframe");
     var pokemonPageHead=document.getElementById("pokemonpagehead");
+
+    //初始位置居中
+    var originalPlaceY=parseInt(window.innerHeight*0.13)+FreeHeight;//
+    var originalPlaceYt=parseInt(window.innerHeight*0.87)-68-FreeHeight;
+    var originalPlaceX=parseInt(window.innerWidth*0.5)-300/2+FreeWeight;
+
     var event = event || window.event;
     //隐藏
     function hiddenball() {
@@ -27,8 +36,8 @@ var dateStart,dateEnd,starw,starh;
 
     //判断是否第一次打开这个浏览器,并且保存位置
     if (localStorage.getItem('msgw')==null){
-        obj.style.top=parseInt(window.innerHeight*0.95)-objWH;
-        obj.style.left=parseInt(window.innerWidth*0.95)-objWH;
+        obj.style.bottom=originalPlaceY;
+        obj.style.right=originalPlaceX;
     }else {
         obj.style.left=localStorage.getItem('msgw');
         obj.style.top=localStorage.getItem('msgh');
@@ -97,13 +106,14 @@ var dateStart,dateEnd,starw,starh;
             if(obj.clientWidth==objWH){
                 //ifream
                 pokemonIframe.style.display="block";
-                pokemonIframe.style.right=15;
-                pokemonIframe.style.bottom=parseInt(window.innerHeight*0.05)+50;
+                pokemonIframe.style.right=originalPlaceX+6;
+                pokemonIframe.style.bottom=originalPlaceY+35;
                 pokemonPageHead.style.display="block";
-                pokemonPageHead.style.right=15;
-                pokemonPageHead.style.bottom=parseInt(window.innerHeight*0.05+270)+50;
+                pokemonPageHead.style.right=originalPlaceX+6;
+                pokemonPageHead.style.bottom=originalPlaceY+35+270;
                 var ballStyle=obj.getAttribute("name");
                 pokemonboxInsideLeft.style.display="block";
+
                 bigBk.style.display="block";
                 switch (ballStyle)
                 {
@@ -118,8 +128,8 @@ var dateStart,dateEnd,starw,starh;
                         break;
                 }
                 obj.className +=" pokemonbox-big";
-                obj.style.top=parseInt(window.innerHeight*0.95)-parseInt(obj.clientHeight);
-                obj.style.left=parseInt(window.innerWidth-10)-300;
+                obj.style.top=originalPlaceYt;
+                obj.style.left=originalPlaceX;
                 obj.style.opacity="1";
             }else{
                 //判断张开后 点击是否在小圆球内
