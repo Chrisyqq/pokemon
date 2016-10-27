@@ -8,10 +8,6 @@
 </head>
 <body class="roadbank">
 <div class="">
-    <div class="pokemon-page-head">
-        <span>意见反馈</span>
-        <div id="pokemonClose" class="pokemon-close"></div>
-    </div>
     <div class="pokemon-page-body">
         <div class="pokemon-frame-box more-close">
             <textarea class="more-suggestion-area" placeholder="请输入您的反馈意见"></textarea>
@@ -33,6 +29,15 @@
         $('.more-suggestion-button').click(function () {
             $(this).addClass('button-active');
             $('.more-suggestion-result').css('display','block');
+        });
+        $('.more-suggestion-area').bind('focus',function () {
+            $(window.parent.document).find(".pokemon-iframe").addClass('input-position-pokemon-iframe');
+            $(window.parent.document).find(".pokemonbox").addClass('input-position-pokemonbox');
+            $(window.parent.document).find(".pokemon-page-head").addClass('input-position-head')
+        }).bind('blur',function () {
+            $(window.parent.document).find(".pokemon-page-head").removeClass('input-position-head');
+            $(window.parent.document).find(".pokemon-iframe").removeClass('input-position-pokemon-iframe');
+            $(window.parent.document).find(".pokemonbox").removeClass('input-position-pokemonbox');
         })
     })();
 </script>
