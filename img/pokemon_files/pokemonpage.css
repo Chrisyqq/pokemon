@@ -8,7 +8,6 @@ body{
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     overflow: auto;
-    -webkit-overflow-scrolling: touch;
 }
 a{
     text-decoration:none;
