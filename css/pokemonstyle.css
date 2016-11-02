@@ -141,14 +141,28 @@ body{
 /* xuanfu */
 .out{
     display:inline-block;
-    width:54px;
-    height:54px;
+    width:55px;
+    height:55px;
     border-radius:50%;
     position: relative;
     margin-top: -55px;
     background: #ffffff;
     overflow: hidden;
-    z-index: -200;
+    transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+}
+.out p{
+    z-index: 20;
+}
+.out:after{
+    content: '';
+    position: absolute;
+    width:57px;
+    height:57px;
+    border-radius:50%;
+    overflow: hidden;
+    z-index: 100;
 }
 .in{
     width:108px;
@@ -161,32 +175,30 @@ body{
     -o-animation: wave 5s linear infinite;
     -webkit-animation:wave 5s linear infinite;
     animation:wave 5s linear infinite;
-    z-index:66
 }
-.in-over-one{
+.in-over{
     width: 100%;
     height: 100%;
     position: absolute;
     border-radius: 2px;
     left: -1px;
-    top: 0;
+    top: -1px;
     background: url("../img/fangyuan.png") no-repeat center;
     background-size: 100% 100%;
     border: 1px solid #ffffff;
-    z-index: 100;
 }
 .in-over-two{
     width: 100%;
     height: 100%;
     position: absolute;
     border-radius: 2px;
-    left: -1px;
-    top: 0;
+    left: -2px;
+    top: -1px;
     background: url("../img/kongquan.png") no-repeat center;
-    background-size: 20% 20%;
+    background-size: 100% 99%;
     border: 1px solid #ffffff;
-    z-index: 100;
 }
+
 @-webkit-keyframes wave {
     from {
         -webkit-transform: rotateZ(0deg) ;

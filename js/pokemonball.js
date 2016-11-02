@@ -105,7 +105,10 @@ var FreeWeight=0;//这里可以左右移动
             //根据对象的高度 在执行不同的样式
             if(obj.clientWidth==objWH){
                 //ifream
-
+                // obj.style.top=originalPlaceYt;
+                // obj.style.left=originalPlaceX;
+                obj.style.opacity="1";
+                $('#pokemon').animate({left:originalPlaceX,top:originalPlaceYt},500);
                 var ballStyle=obj.getAttribute("name");
                 // pokemonboxInsideLeft.style.display="block";
 
@@ -128,14 +131,14 @@ var FreeWeight=0;//这里可以左右移动
                     'border':'1px solid #dfdfdf',
                     'background':'#ffffff',
                     'box-shadow':'0 5px 8px #dfdfdf',
-                    'height':'68px'
+                    'height':'66px'
                 });
                 $('.pokemonbox-inside').css({
                     'border-left':'1px solid #dfdfdf',
                     'border-top':'1px solid #dfdfdf',
                     'border-bottom':'1px solid #dfdfdf',
                     'width':'262px',
-                    'height':'54px',
+                    'height':'52px',
                     'margin-top':'6px',
                     'margin-left':'6px',
                     'border-top-left-radius':'30px',
@@ -155,27 +158,25 @@ var FreeWeight=0;//这里可以左右移动
                 $('.out-circle').css({
                     'display':'block'
                 });
-                $('#inover').removeClass('in-over-two');
-                $('#inover').addClass('in-over-one');
+                $('.in-over').addClass('in-over-two');
                 $('.pokemonbox').animate(
                     {width:'300px'},300,
                     function () {
                         $('.pokemonbox-inside-left').animate({opacity:'1',top:'8px'},300,function () {
-                            $('.pokemon-iframe').css({'right':originalPlaceX+6,'bottom':originalPlaceY+10});
-                            $('.pokemon-page-head').css({'right':originalPlaceX+6,'bottom':originalPlaceY+280});
+                            $('.pokemon-iframe').css({'right':originalPlaceX+6,'bottom':originalPlaceY+10,'display':'block'});
+                            $('.pokemon-page-head').css({'right':originalPlaceX+6,'bottom':originalPlaceY+280,'display':'block'});
                             $('.pokemon-iframe').animate({opacity:'1',bottom:originalPlaceY+35},100);
                             $('.pokemon-page-head').animate({opacity:'1',bottom:originalPlaceY+305},100);
                         });
                         $('.pokemonbox-inside-left').css('z-index','350')
                     }
                 );
-                obj.style.top=originalPlaceYt;
-                obj.style.left=originalPlaceX;
-                obj.style.opacity="1";
+
             }else{
                 //判断张开后 点击是否在小圆球内
                 if(starw>0 && starw<60){
-
+                    $('.pokemon-page-head').css({opacity:'0',display:'none'});
+                    $('.pokemon-iframe').css({opacity:'0',display:'none'});
                     $('#allbk').addClass('bk');
                     $('.pokemonbox').css({
                         'border':'none',
@@ -208,12 +209,9 @@ var FreeWeight=0;//这里可以左右移动
                         'width':'52px',
                         'margin-top':'-1px',
                         'overflow':'hidden',
-                        'opcaity':'0',
+                        'opcaity':'0'
                     });
-                    $('#inover').removeClass('in-over-one');
-                    $('#inover').addClass('in-over-two');
-                    $('.pokemon-iframe').css({opacity:'0'});
-                    $('.pokemon-page-head').css({opacity:'0'});
+                    $('.in-over').removeClass('in-over-two');
                     $('.pokemonbox-inside-left').css({opacity:'0'});
                     $('.pokemonbox').animate({width:'70px','box-shadow':'none'},300);
                     obj.style.left=localStorage.getItem('msgw');
