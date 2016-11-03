@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加速器</title>
+    <style type="text/css">
+        body,html{
+            height: 100%;
+            margin: 100px
+        }
+        .aa{
+            display:inline-block;
+            width:300px;
+            height:300px;
+            -webkit-border-radius: 300px;
+            -moz-border-radius: 300px;
+            border-radius: 300px;
+            overflow:hidden;
+            background-color:rgba(255,0,0,0.2);
+            -webkit-mask-image: url(/img/asas.png);
+            mask-image: url(/img/br.png);
+            position: absolute;
+        }
+        .bb{
+            width:600px;
+            height:600px;
+            border-radius:40%;
+            background-color:red;
+            position:relative;
+            top:45%;
+            left:-50%;
+            -webkit-animation:wave 5s linear infinite;
+            z-index:66
+        }
+        @-webkit-keyframes wave {
+            from {
+                -webkit-transform: rotateZ(0deg) ;
+                transform: rotateZ(0deg);
+            }
+            to {
+                -webkit-transform: rotateZ(360deg);
+                transform: rotateZ(360deg);
+            }
+        }
+
+        @keyframes wave {
+            from {
+                -webkit-transform: rotateZ(0deg);
+                transform: rotateZ(0deg);
+            }
+            to {
+                -webkit-transform: rotateZ(360deg);
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="aa" style="">
+        <div class="bb" style=""></div>
+    </div>
+</div>
+</div>
+</body>
+</html>
