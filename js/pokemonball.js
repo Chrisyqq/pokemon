@@ -7,7 +7,7 @@ var dateStart,dateEnd,starw,starh;
 
 var FreeHeight=0;//这里可以调整高度
 var FreeWeight=0;//这里可以左右移动
-(function () {
+(function (event) {
     var obj=document.getElementById("pokemon");
     var flowMoveBox=document.getElementById("flowMoveBox");
     var objWH=obj.clientHeight;
@@ -104,52 +104,30 @@ var FreeWeight=0;//这里可以左右移动
         if(0<=time && time<=150){
             //根据对象的高度 在执行不同的样式
             if(obj.clientWidth==objWH){
-                //ifream
-                // obj.style.top=originalPlaceYt;
-                // obj.style.left=originalPlaceX;
-                obj.style.opacity="1";
-                $('#pokemon').css({left:originalPlaceX,top:originalPlaceYt},200);
-                var ballStyle=obj.getAttribute("name");
-                // pokemonboxInsideLeft.style.display="block";
 
-                // bigBk.style.display="block";
-                // switch (ballStyle)
-                // {
-                //     case "red":
-                //         obj.className = "pokemonbox pokemon-small-color-red";
-                //         break;
-                //     case "yellow":
-                //         obj.className = "pokemonbox pokemon-small-color-yellow";
-                //         break;
-                //     case "blue":
-                //         obj.className = "pokemonbox pokemon-small-color-blue";
-                //         break;
-                // }
-                // obj.className +=" pokemonbox-big";
+                obj.style.opacity="1";
+                $('.pokemonbox').css({left:originalPlaceX,top:originalPlaceYt});
                 $('#allbk').removeClass('bk');
                 $('.pokemonbox').css({
                     'border':'1px solid #dfdfdf',
                     'background':'#ffffff',
                     'box-shadow':'0 5px 8px #dfdfdf',
-                    'height':'76px'
+                    'height':'70px'
                 });
                 $('.pokemonbox-inside').css({
                     'border-left':'1px solid #dfdfdf',
                     'border-top':'1px solid #dfdfdf',
                     'border-bottom':'1px solid #dfdfdf',
-                    'width':'262px',
+                    'width':'272px',
                     'height':'53px',
-                    'margin-top':'11px',
-                    'margin-left':'12px',
+                    'margin-top':'8px',
+                    'margin-left':'10px',
                     'border-top-left-radius':'30px',
                     'border-bottom-left-radius':'30px',
 
                     'box-shadow':'0 0 4px #dfdfdf inset',
                     'z-index':'100',
                     'overflow':'hidden'
-                });
-                $('.out').css({
-                    'box-shadow': '-1px 1px 2px 2px #dfdfdf inset'
                 });
                 $('.out-border-circle').css({
                     'display': 'block'
@@ -158,34 +136,25 @@ var FreeWeight=0;//这里可以左右移动
                     'z-index':'200',
                     'height':'53px',
                     'width':'54px',
-                    'margin-top':'3px',
-                    'margin-right':'5px',
+                    'margin-top':'0px',
+                    'margin-right':'2px',
                     'border':'1px solid #dfdfdf',
                     'overflow':'hidden',
 
                 });
-                $('.out-circle').css({
-                    'display':'block'
-                });
                 $('.in-over').addClass('in-over-two');
-                $('.pokemonbox').animate(
-                    {width:'316px'},300,
-                    function () {
-                        $('.pokemonbox-inside-left').animate({opacity:'1',top:'8px'},300,function () {
-                            $('.pokemon-iframe').css({'right':originalPlaceX+13,'bottom':originalPlaceY+10,'display':'block'});
-                            $('.pokemon-page-head').css({'right':originalPlaceX+13,'bottom':originalPlaceY+280,'display':'block'});
-                            $('.pokemon-iframe').animate({opacity:'1',bottom:originalPlaceY+40},100);
-                            $('.pokemon-page-head').animate({opacity:'1',bottom:originalPlaceY+310},100);
-                        });
-                        $('.pokemonbox-inside-left').css('z-index','350')
-                    }
-                );
-
+                $('.pokemonbox').addClass('pokemonbox-big');
+                $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13,'bottom':originalPlaceY+50,'display':'block'});
+                $('.pokemonbox-inside-left').css('display','block');
+                $('.pokemonbox-inside-left').addClass('pokemonbox-inside-left-movie');
+                $('.pokemonbox-inside-left').css('z-index','350');
+                setTimeout(Refresh(),300);
+                function Refresh() {
+                    $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13,'bottom':originalPlaceY+50,'display':'block'});
+                }
             }else{
                 //判断张开后 点击是否在小圆球内
                 if(starw>0 && starw<60){
-                    $('.pokemon-page-head').css({opacity:'0',display:'none'});
-                    $('.pokemon-iframe').css({opacity:'0',display:'none'});
                     $('#allbk').addClass('bk');
                     $('.pokemonbox').css({
                         'border':'none',
@@ -228,9 +197,10 @@ var FreeWeight=0;//这里可以左右移动
                     $('.out-border-circle').css({
                         'display': 'none'
                     });
+                    $('.pokemonbox').removeClass('pokemonbox-big');
                     $('.in-over').removeClass('in-over-two');
-                    $('.pokemonbox-inside-left').css({opacity:'0'});
-                    $('.pokemonbox').animate({width:'70px','box-shadow':'none'},300);
+                    $('.pokemonbox-inside-left').css('display','none');
+                    $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13,'bottom':originalPlaceY+50,'display':'none'});
                     obj.style.left=localStorage.getItem('msgw');
                     obj.style.top=localStorage.getItem('msgh');
                     ballStyle=obj.getAttribute("name");

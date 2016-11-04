@@ -1,0 +1,80 @@
+
+<!-- saved from url=(0043)http://localhost:63342/pokemon/pokemon.html -->
+<html xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="./pokemon_files/pokemonstyle.css" rel="stylesheet">
+    <script src="./pokemon_files/jquery.min.js"></script>
+    <title>pokemon</title>
+</head>
+<body>
+
+
+<div id="pokemon" class="pokemonbox pokemonbox-bright-yellow pokemonbox-big" name="yellow" style="left: 42px; top: 541px; opacity: 1; border: 1px solid rgb(223, 223, 223); background: rgb(255, 255, 255); box-shadow: rgb(223, 223, 223) 0px 5px 8px; height: 70px;">
+    <div class="pokemon-page-head" id="pokemonpagehead">
+        <span>最新活动</span>
+        <div id="pokemonClose" class="pokemon-close"></div>
+    </div>
+    <div id="pokemonIframe" class="pokemon-iframe" style="display: block;">
+        <iframe class="iframe-move" id="asas" src="./pokemon_files/newactive.html" name="iFrame1" frameborder="no" marginwidth="0" marginheight="0" allowtransparency="yes"></iframe>
+    </div>
+    <div class="pokemonbox-inside" style="border-left: 1px solid rgb(223, 223, 223); border-top: 1px solid rgb(223, 223, 223); border-bottom: 1px solid rgb(223, 223, 223); width: 272px; height: 53px; margin-top: 8px; margin-left: 10px; border-top-left-radius: 30px; border-bottom-left-radius: 30px; box-shadow: rgb(223, 223, 223) 0px 0px 4px inset; z-index: 100; overflow: hidden;">
+        <div id="pokemonboxInsideLeft" class="pokemonbox-inside-left pokemonbox-inside-left-movie" style="z-index: 350;">
+            <div class="inside-left-serve">
+                <a href="http://localhost:63342/pokemon/roadbank.html" target="iFrame1"><div class="serve-box active">
+                    <div class="serve-box-img roadbank"></div>
+                    <span>流量银行</span>
+                </div></a>
+                <a href="http://localhost:63342/pokemon/newactive.html" target="iFrame1"><div class="serve-box">
+                    <div class="serve-box-img newactive"></div>
+                    <span>最新活动</span>
+                </div></a>
+                <a href="http://localhost:63342/pokemon/vip.html" target="iFrame1"><div class="serve-box">
+                    <div class="serve-box-img vip"></div>
+                    <span>VIP</span>
+                </div></a>
+                <a href="http://localhost:63342/pokemon/collect.html" target="iFrame1"><div class="serve-box">
+                    <div class="serve-box-img collect"></div>
+                    <span>收藏</span>
+                </div></a>
+                <a href="http://localhost:63342/pokemon/more.html" target="iFrame1">
+                    <div class="serve-box red-point-tishi">
+                        <div class="serve-box-img more"></div>
+                        <span>更多</span>
+                    </div>
+                </a>
+            </div>
+            <div class="inside-left-no-serve">
+
+            </div>
+        </div>
+        <div id="allbk" class="bkbase" style="opacity: 1;">
+        </div>
+        <div id="bigbk" class="big-bk"></div>
+        <div id="" class="pokemonbox-inside-right" style="z-index: 200; height: 53px; width: 54px; margin-top: 0px; margin-right: 2px; border: 1px solid rgb(223, 223, 223); overflow: hidden;">
+            <div class="pokemonbox-inside-right-bk">
+                <p><span id="horizontallinenum" style="font-size: 14px">30</span>%</p>
+                <div id="flowMoveBox" class="pokemonbox-inside-right-bkyellow">
+                </div>
+
+            </div>
+            <div class="out" style="box-shadow: rgb(223, 223, 223) -1px 1px 2px 2px inset;">
+                <div class="out-border-circle" style="display: block;"></div>
+                <div style=""></div>
+                <div class="in" id="flowin" style="top: 70%;"></div>
+                <div id="inover" class="in-over in-over-two"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./pokemon_files/pokemonball.js"></script>
+<script>
+    (function () {
+        $('.serve-box').click(function () {
+            $('#pokemonpagehead span').text($(this).text());
+        })
+    })();
+
+</script>
+</body></html>
