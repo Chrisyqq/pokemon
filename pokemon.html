@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE HTML>
 <html xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
@@ -49,22 +49,25 @@
             <div class="inside-left-no-serve">
 
             </div>
+            <!--<div class="out-border-circle" style=""></div>-->
         </div>
         <div id="allbk" class="bk bkbase">
         </div>
         <div id="bigbk" class="big-bk"></div>
         <div id="" class="pokemonbox-inside-right">
             <div class="pokemonbox-inside-right-bk">
-                <p><span id="horizontallinenum" style="font-size: 14px">30</span>%</p>
+
                 <div id="flowMoveBox" class="pokemonbox-inside-right-bkblue">
                 </div>
+            </div>
+            <div class="out-over">
 
             </div>
             <div class="out">
-                <div class="out-border-circle" style=""></div>
-                <div style=""></div>
                 <div class="in" id="flowin"></div>
-                <div id="inover" class="in-over"></div>
+                <div id="inover" class="in-over">
+                    <p><span id="horizontallinenum" style="font-size: 14px">100</span>%</p>
+                </div>
             </div>
         </div>
     </div>
@@ -75,6 +78,9 @@
     (function () {
         $('.serve-box').click(function () {
             $('#pokemonpagehead span').text($(this).text());
+        });
+        $('.pokemonbox').click(function () {
+            alert(0)
         })
     })();
 

@@ -39,8 +39,8 @@ var FreeWeight=0;//这里可以左右移动
         obj.style.bottom=originalPlaceY;
         obj.style.right=originalPlaceX;
     }else {
-        obj.style.left=localStorage.getItem('msgw');
-        obj.style.top=localStorage.getItem('msgh');
+        obj.style.left=localStorage.getItem('msgw')+'px';
+        obj.style.top=localStorage.getItem('msgh')+'px';
     }
 
     //判断流量数据,配置不同的颜色
@@ -62,6 +62,7 @@ var FreeWeight=0;//这里可以左右移动
     //点击 开始
     function touchStart(event) {
         allBk.style.opacity="1";
+        event.preventDefault();
         dateStart=new Date();
         if(obj.clientWidth==objWH){
             starw=parseInt(event.touches[0].pageX)-obj.offsetLeft;
@@ -71,11 +72,12 @@ var FreeWeight=0;//这里可以左右移动
             starw=parseInt(event.touches[0].pageX)-obj.offsetLeft-238;
             starh=parseInt(event.touches[0].pageY)-obj.offsetTop;
         }
+
     }
 
     //点击移动
     function touchMove(event) {
-        event.preventDefault();
+
         var x=parseInt(event.touches[0].pageX);
         var y=parseInt(event.touches[0].pageY);
         var h = parseInt(window.innerHeight);
@@ -84,18 +86,15 @@ var FreeWeight=0;//这里可以左右移动
         var dy=h-parseInt(obj.clientHeight)+starh;
         if(obj.clientWidth==objWH){
             if(starw<=x && x<=dx){
-                obj.style.left = parseInt(event.touches[0].pageX)-starw;
+                obj.style.left = parseInt(event.touches[0].pageX)-starw+'px';
             }
             if(starh<=y && y<=dy){
-                obj.style.top = parseInt(event.touches[0].pageY)-starh;
+                obj.style.top = parseInt(event.touches[0].pageY)-starh+'px';
             }
         }else{
             event.preventDefault();
         }
-
-
     }
-
     //点击结束
     function touchEnd(event) {
         dateEnd=new Date();
@@ -114,21 +113,6 @@ var FreeWeight=0;//这里可以左右移动
                     'box-shadow':'0 5px 8px #dfdfdf',
                     'height':'70px'
                 });
-                $('.pokemonbox-inside').css({
-                    'border-left':'1px solid #dfdfdf',
-                    'border-top':'1px solid #dfdfdf',
-                    'border-bottom':'1px solid #dfdfdf',
-                    'width':'272px',
-                    'height':'53px',
-                    'margin-top':'8px',
-                    'margin-left':'10px',
-                    'border-top-left-radius':'30px',
-                    'border-bottom-left-radius':'30px',
-
-                    'box-shadow':'0 0 4px #dfdfdf inset',
-                    'z-index':'100',
-                    'overflow':'hidden'
-                });
                 $('.out-border-circle').css({
                     'display': 'block'
                 });
@@ -139,19 +123,14 @@ var FreeWeight=0;//这里可以左右移动
                     'margin-top':'0px',
                     'margin-right':'2px',
                     'border':'1px solid #dfdfdf',
-                    'overflow':'hidden',
+                    'overflow':'hidden'
 
                 });
-                $('.in-over').addClass('in-over-two');
                 $('.pokemonbox').addClass('pokemonbox-big');
                 $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13,'bottom':originalPlaceY+50,'display':'block'});
                 $('.pokemonbox-inside-left').css('display','block');
                 $('.pokemonbox-inside-left').addClass('pokemonbox-inside-left-movie');
-                $('.pokemonbox-inside-left').css('z-index','350');
-                setTimeout(Refresh(),300);
-                function Refresh() {
-                    $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13,'bottom':originalPlaceY+50,'display':'block'});
-                }
+
             }else{
                 //判断张开后 点击是否在小圆球内
                 if(starw>0 && starw<60){
@@ -162,33 +141,12 @@ var FreeWeight=0;//这里可以左右移动
                         'box-shadow':'none',
                         'height':'68px'
                     });
-                    $('.pokemonbox-inside').css({
-                        'border-left':'none',
-                        'border-top':'none',
-                        'border-bottom':'none',
-                        'width':'262px',
-                        'height':'54px',
-                        'margin-top':'6px',
-                        'margin-left':'6px',
-                        'border-top-left-radius':'30px',
-                        'border-bottom-left-radius':'30px',
-                        'background':'#ffffff',
-                        'box-shadow':'none',
-                        'z-index':'100'
-                    });
                     $('.pokemonbox-inside-right').css({
-                        'border-left':'none',
-                        'border-top':'none',
-                        'border-bottom':'none',
-                        'background':'none',
-                        'box-shadow':'none',
+                        'border':'none',
                         'z-index':'200',
                         'height':'52px',
                         'width':'52px',
-                        'overflow':'hidden',
-                        'opcaity':'0',
-                        'margin-top':'0px',
-                        'margin-right':'2'
+                        'overflow':'hidden'
                     });
                     $('.out').css({
                         'box-shadow': 'none'
@@ -198,11 +156,10 @@ var FreeWeight=0;//这里可以左右移动
                         'display': 'none'
                     });
                     $('.pokemonbox').removeClass('pokemonbox-big');
-                    $('.in-over').removeClass('in-over-two');
                     $('.pokemonbox-inside-left').css('display','none');
-                    $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13,'bottom':originalPlaceY+50,'display':'none'});
-                    obj.style.left=localStorage.getItem('msgw');
-                    obj.style.top=localStorage.getItem('msgh');
+                    $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13+'px','bottom':originalPlaceY+50+'px','display':'none'});
+                    obj.style.left=localStorage.getItem('msgw')+'px';
+                    obj.style.top=localStorage.getItem('msgh')+'px';
                     ballStyle=obj.getAttribute("name");
                     switch (ballStyle)
                     {
@@ -223,8 +180,8 @@ var FreeWeight=0;//这里可以左右移动
         //点击超过150秒 确认是移动然后保存位置信息
         if(time>150){
             if(obj.clientWidth==objWH){
-                var strw = obj.offsetLeft;
-                var strh = obj.offsetTop;
+                strw = obj.offsetLeft;
+                strh = obj.offsetTop;
                 localStorage.setItem('msgw', strw);
                 localStorage.setItem('msgh', strh);
             }
