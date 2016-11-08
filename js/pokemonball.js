@@ -4,7 +4,6 @@
 
 //拖动球
 var dateStart,dateEnd,starw,starh;
-
 var FreeHeight=0;//这里可以调整高度
 var FreeWeight=0;//这里可以左右移动
 (function (event) {
@@ -62,7 +61,7 @@ var FreeWeight=0;//这里可以左右移动
     //点击 开始
     function touchStart(event) {
         allBk.style.opacity="1";
-        event.preventDefault();
+
         dateStart=new Date();
         if(obj.clientWidth==objWH){
             starw=parseInt(event.touches[0].pageX)-obj.offsetLeft;
@@ -92,7 +91,7 @@ var FreeWeight=0;//这里可以左右移动
                 obj.style.top = parseInt(event.touches[0].pageY)-starh+'px';
             }
         }else{
-            event.preventDefault();
+
         }
     }
     //点击结束
@@ -124,13 +123,11 @@ var FreeWeight=0;//这里可以左右移动
                     'margin-right':'2px',
                     'border':'1px solid #dfdfdf',
                     'overflow':'hidden'
-
                 });
                 $('.pokemonbox').addClass('pokemonbox-big');
                 $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13,'bottom':originalPlaceY+50,'display':'block'});
                 $('.pokemonbox-inside-left').css('display','block');
                 $('.pokemonbox-inside-left').addClass('pokemonbox-inside-left-movie');
-
             }else{
                 //判断张开后 点击是否在小圆球内
                 if(starw>0 && starw<60){

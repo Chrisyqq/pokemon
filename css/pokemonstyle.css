@@ -20,17 +20,16 @@ body{
     border-radius: 70px;
     right: 5%;
     z-index: 20;
-    bottom: 60px;
+    bottom: 13%;
     animation: all ease 2s;
     -webkit-animation: all ease 2s;
     -moz-animation: all ease 2s;
     -o-animation: all ease 2s;
-    overflow: visible;
     /*box-shadow: 0 0 8px #a8a8a8;*/
 }
 .pokemon-head-iframe{
     display: none;
-    position: relative;
+    position: fixed;
     width: 290px;
     z-index: 10;
     height: auto;
@@ -610,6 +609,7 @@ body{
     border-radius: 54px;
     padding-left: 10px;
     border:1px solid #dfdfdf;
+    z-index: 300;
     height: 52px;
     position: absolute;
     left: 10px;
@@ -619,8 +619,8 @@ body{
     overflow: hidden;
     box-shadow:0 0 6px #dfdfdf inset;
 }
-.pokemonbox-inside-left-movie{
 
+.pokemonbox-inside-left-movie{
     opacity:1;
     -moz-animation: boxv ease 0.5s;
     -o-animation: boxv ease 0.5s;
@@ -673,16 +673,19 @@ body{
 .pokemonbox-inside-left .inside-left-serve{
     width: 250px;
     height: 54px;
-    display: block;
 }
 .inside-left-serve .serve-box{
     width: 48px;
     height: 54px;
     margin-left: -2px;
+    z-index: 300;
     text-align: center;
     float: left;
     line-height: 20px !important;
     color: #c6c6c6;
+}
+.inside-left-serve .serve-box:hover .serve-box{
+    background: #333333;
 }
 .inside-left-serve .serve-box span{
 

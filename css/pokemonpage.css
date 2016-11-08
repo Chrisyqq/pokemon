@@ -189,9 +189,10 @@ a{
     width: 244px;
     border-radius: 6px;
     min-height: 60px;
+    float: left;
     padding-right: 10px;
     padding-top: 6px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     padding-left: 10px;
     background: #ffffff;
     border: 1px solid #eeeeee;
@@ -277,6 +278,12 @@ a{
     line-height: 30px;
     font-size: 16px;
     margin: 0 auto 0 auto;
+}
+.check-border{
+    border-bottom: 1px solid #dfdfdf;
+    width: 220px;
+    margin-bottom: 15px;
+    float: left;
 }
 .check-result-body p{
     color: #ff693e;
