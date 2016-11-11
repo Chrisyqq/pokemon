@@ -21,43 +21,42 @@ body{
     right: 5%;
     z-index: 20;
     bottom: 13%;
-    animation: all ease 2s;
-    -webkit-animation: all ease 2s;
-    -moz-animation: all ease 2s;
-    -o-animation: all ease 2s;
+    animation: all 2s ease;
+    -webkit-animation: all 2s ease;
+    -moz-animation: all 2s ease;
+    -o-animation: all 2s ease;
     /*box-shadow: 0 0 8px #a8a8a8;*/
 }
 .pokemon-head-iframe{
     display: none;
     position: fixed;
+    bottom: 10%;
     width: 290px;
     z-index: 10;
     height: auto;
+    opacity: 1;
+    -moz-opacity: 1;
+    animation: piframem ease 0.3s 2s normal;
+    -webkit-animation: piframem ease 0.3s 2s normal;
+    -o-animation: piframem ease 0.3s 2s normal;
+    -moz-animation: piframem ease 0.3s 2s normal;
 }
 .input-position-pokemonbox{
     top: 285px !important;
 }
 .pokemon-head-iframe .pokemon-iframe{
     width: 290px;
-    padding-bottom: 30px;
     background: #fbfbfb;
-    height: 270px;
+    height: 290px;
     z-index: -1000;
-    position: absolute;
-    left: 0;
-    top: -290px;
+    padding-bottom: 30px;
+    float: left;
     border-top-right-radius: 10px !important;
     border-top-left-radius: 10px !important;
     box-shadow: 0 0 8px #a8a8a8;
     overflow:scroll;
     overflow-x:hidden;
-    overflow-y:hidden;
-    opacity: 1;
-    -moz-opacity: 1;
-    animation: piframem ease 0.3s;
-    -webkit-animation: piframem ease 0.3s;
-    -o-animation: piframem ease 0.3s;
-    -moz-animation: piframem ease 0.3s;
+
     /*animation-delay:0.3s;*/
     /*-webkit-animation-delay:0.3s; !* Safari 和 Chrome *!*/
     /*-moz-animation-delay:0.3s; !* Safari 和 Chrome *!*/
@@ -65,56 +64,40 @@ body{
 }
 @keyframes piframem {
     0%{
-        left: 0;
-        top: -260px;
         opacity: 0;
         -moz-opacity: 0;
     }
     100%{
-        left: 0;
-        top: -290px;
         opacity: 1;
         -moz-opacity: 1;
     }
 }
 @-webkit-keyframes piframem {
     0%{
-        left: 0;
-        top: -260px;
         opacity: 0;
         -moz-opacity: 0;
     }
     100%{
-        left: 0;
-        top: -290px;
         opacity: 1;
         -moz-opacity: 1;
     }
 }
 @-moz-keyframes piframem {
     0%{
-        left: 0;
-        top: -260px;
         opacity: 0;
         -moz-opacity: 0;
     }
     100%{
-        left: 0;
-        top: -290px;
         opacity: 1;
         -moz-opacity: 1;
     }
 }
 @-o-keyframes piframem {
     0%{
-        left: 0;
-        top: -260px;
         opacity: 0;
         -moz-opacity: 0;
     }
     100%{
-        left: 0;
-        top: -290px;
         opacity: 1;
         -moz-opacity: 1;
     }
@@ -126,7 +109,7 @@ body{
     border: none;
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
     top: 0;
     border-top-right-radius: 10px !important;
     border-top-left-radius: 10px !important;

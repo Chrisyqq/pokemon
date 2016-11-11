@@ -33,6 +33,8 @@ var FreeWeight=0;//这里可以左右移动
 
     flowIn.style.top=(100-horizontalLineNum)+"%";
 
+    //focus blur
+    
     //判断是否第一次打开这个浏览器,并且保存位置
     if (localStorage.getItem('msgw')==null){
         obj.style.bottom=originalPlaceY;
@@ -76,7 +78,7 @@ var FreeWeight=0;//这里可以左右移动
 
     //点击移动
     function touchMove(event) {
-
+        event.preventDefault();
         var x=parseInt(event.touches[0].pageX);
         var y=parseInt(event.touches[0].pageY);
         var h = parseInt(window.innerHeight);
@@ -125,9 +127,12 @@ var FreeWeight=0;//这里可以左右移动
                     'overflow':'hidden'
                 });
                 $('.pokemonbox').addClass('pokemonbox-big');
-                $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13,'bottom':originalPlaceY+50,'display':'block'});
+                $('.pokemon-head-iframe').css({'position':'fixed','right':originalPlaceX+13,'bottom':originalPlaceY+50+'px','display':'block'});
                 $('.pokemonbox-inside-left').css('display','block');
                 $('.pokemonbox-inside-left').addClass('pokemonbox-inside-left-movie');
+                // $(window.frames[0].document).find('#textArea').bind('focus',function () {
+                //
+                // })
             }else{
                 //判断张开后 点击是否在小圆球内
                 if(starw>0 && starw<60){
@@ -152,9 +157,9 @@ var FreeWeight=0;//这里可以左右移动
                     $('.out-border-circle').css({
                         'display': 'none'
                     });
-                    $('.pokemonbox').removeClass('pokemonbox-big');
+           
                     $('.pokemonbox-inside-left').css('display','none');
-                    $('.pokemon-head-iframe').css({'position':'absolute','right':originalPlaceX+13+'px','bottom':originalPlaceY+50+'px','display':'none'});
+                    $('.pokemon-head-iframe').css({'position':'fixed','right':originalPlaceX+13+'px','bottom':originalPlaceY+50+'px','display':'none'});
                     obj.style.left=localStorage.getItem('msgw')+'px';
                     obj.style.top=localStorage.getItem('msgh')+'px';
                     ballStyle=obj.getAttribute("name");
@@ -204,4 +209,12 @@ var FreeWeight=0;//这里可以左右移动
         }
     })
 
+})();
+
+(function () {
+    $('.serve-box').click(function () {
+        $('#pokemonpagehead span').text($(this).text());
+    });
+    $('.pokemonbox-inside').click(function () {
+    })
 })();

@@ -10,12 +10,12 @@
 <body>
 
 <div class="pokemon-head-iframe">
+    <div class="pokemon-page-head" id="pokemonpagehead">
+        <span>最新活动</span>
+        <div id="pokemonClose" class="pokemon-close"></div>
+    </div>
     <div id="pokemonIframe" class="pokemon-iframe">
-        <div class="pokemon-page-head" id="pokemonpagehead">
-            <span>最新活动</span>
-            <div id="pokemonClose" class="pokemon-close"></div>
-        </div>
-        <iframe class="iframe-move" id="asas" src="newactive.html" name="iFrame" frameborder="no" marginwidth="0" marginheight="0" allowtransparency="yes"></iframe>
+        <iframe class="iframe-move" id="asas" src="newactive.html" name="iFrame" scrolling="yes" frameborder="no" marginwidth="0" marginheight="0" allowtransparency="yes"></iframe>
     </div>
 </div>
 <div id="pokemon" class="pokemonbox">
@@ -23,7 +23,7 @@
     <div class="pokemonbox-inside">
         <div id="pokemonboxInsideLeft" class="pokemonbox-inside-left">
             <div class="inside-left-serve">
-                <a href="roadwarning.html" target="iFrame">
+                <a href="roadbank.html" target="iFrame">
                     <div class="serve-box active">
                         <div class="serve-box-img roadbank"></div>
                         <span>流量银行</span>
@@ -54,9 +54,9 @@
                     </div>
                 </a>
             </div>
-            <!--<div class="inside-left-no-serve">-->
+            <div class="inside-left-no-serve">
 
-            <!--</div>-->
+            </div>
             <!--<div class="out-border-circle" style=""></div>-->
         </div>
         <div id="allbk" class="bk bkbase">
@@ -74,7 +74,7 @@
             <div class="out">
                 <div class="in" id="flowin"></div>
                 <div id="inover" class="in-over">
-                    <p><span id="horizontallinenum" style="font-size: 14px">100</span>%</p>
+                    <p><span id="horizontallinenum" style="font-size: 14px">80</span>%</p>
                 </div>
             </div>
         </div>
@@ -82,14 +82,4 @@
 </div>
 </body>
 <script src="js/pokemonball.js"></script>
-<script>
-    (function () {
-        $('.serve-box').click(function () {
-            $('#pokemonpagehead span').text($(this).text());
-        });
-        $('.pokemonbox-inside').click(function () {
-        })
-    })();
-
-</script>
 </html>

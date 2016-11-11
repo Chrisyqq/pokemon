@@ -10,7 +10,7 @@
 <div class="">
     <div class="pokemon-page-body">
         <div class="pokemon-frame-box more-close">
-            <textarea class="more-suggestion-area" placeholder="请输入您的反馈意见"></textarea>
+            <textarea class="more-suggestion-area" id="textArea" placeholder="请输入您的反馈意见"></textarea>
             <div class="more-suggestion-button">
                 确认提交
             </div>
@@ -30,14 +30,14 @@
             $(this).addClass('button-active');
             $('.more-suggestion-result').css('display','block');
         });
+        var aa= $(window.parent.document).find(".pokemon-head-iframe").position().top
         $('.more-suggestion-area').bind('focus',function () {
-            $(window.parent.document).find(".pokemon-iframe").addClass('input-position-pokemon-iframe');
-            $(window.parent.document).find(".pokemonbox").addClass('input-position-pokemonbox');
-            $(window.parent.document).find(".pokemon-page-head").addClass('input-position-head')
+            $(window.parent.document).find(".pokemon-head-iframe").css({'position':'fixed','top':'20px'});
+            $(window.parent.document).find("#pokemon").css({'position':'fixed','bottom':'-160px'});
         }).bind('blur',function () {
-            $(window.parent.document).find(".pokemon-page-head").removeClass('input-position-head');
-            $(window.parent.document).find(".pokemon-iframe").removeClass('input-position-pokemon-iframe');
-            $(window.parent.document).find(".pokemonbox").removeClass('input-position-pokemonbox');
+            $(window.parent.document).find(".pokemon-head-iframe").css({'position':'fixed','top':aa+"px"});
+//            $(window.parent.document).find(".pokemon-head-iframe").css({'top':'100px'})
+//            $(window.parent.document).find(".pokemonbox").css({'top':'300px'});
         })
     })();
 </script>

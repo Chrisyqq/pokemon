@@ -234,7 +234,8 @@ a{
     padding-right: 10px;
     padding-left: 10px;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
+    float: left;
 }
 .check-select .active{
     background: #ff693e !important;
