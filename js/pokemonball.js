@@ -2,16 +2,87 @@
  * Created by Chris on 16/9/12.
  */
 
+
+(function () {
+    var percentage="80";
+    var PokeMon="<div class='pokemon-head-iframe'>" +
+        "<div class='pokemon-page-head' id='pokemonpagehead'>" +
+        "<span>最新活动</span>" +
+        "<div id='pokemonClose' class='pokemon-close'></div>" +
+        "</div>" +
+        "<div id='pokemonIframe' class='pokemon-iframe'>" +
+        "<iframe class='iframe-move' id='asas' src='newactive.html' name='iFrame' scrolling='yes' frameborder='no' marginwidth='0' marginheight='0' allowtransparency='yes'></iframe>" +
+        "</div>" +
+        "</div>" +
+        "<div id='pokemon' class='pokemonbox'>" +
+        "<div class='pokemonbox-inside'>" +
+        "<div id='pokemonboxInsideLeft' class='pokemonbox-inside-left'>" +
+        "<div class='inside-left-serve'>" +
+        "<a href='roadbank.html' target='iFrame'>" +
+        "<div class='serve-box active'>" +
+        "<div class='serve-box-img roadbank'></div>" +
+        "<span>流量银行</span>" +
+        "</div>" +
+        "</a>" +
+        "<a href='newactive.html' target='iFrame'>" +
+        "<div class='serve-box'>" +
+        "<div class='serve-box-img newactive'></div>" +
+        "<span>最新活动</span>" +
+        "</div>" +
+        "</a>" +
+        "<a href='vip.html' target='iFrame'>" +
+        "<div class='serve-box'>" +
+        "<div class='serve-box-img vip'></div>" +
+        "<span>VIP</span>" +
+        "</div>" +
+        "</a>" +
+        "<a href='collect.html' target='iFrame'>" +
+        "<div class='serve-box'>" +
+        "<div class='serve-box-img collect'></div>" +
+        "<span>收藏</span>" +
+        "</div>" +
+        "</a>" +
+        "<a href='more.html' target='iFrame'>" +
+        "<div class='serve-box red-point-tishi'>" +
+        "<div class='serve-box-img more'></div>" +
+        "<span>更多</span>" +
+        "</div>" +
+        "</a>" +
+        "</div>" +
+        "<!--<div class='out-border-circle' style=''></div>-->" +
+        "</div>" +
+        "<div id='allbk' class='bk bkbase'>" +
+        "</div>" +
+        "<div id='bigbk' class='big-bk'></div>" +
+        "<div id='' class='pokemonbox-inside-right'>" +
+            "<div class='pokemonbox-inside-right-bk'>" +
+                "<div id='flowMoveBox' class='pokemonbox-inside-right-bkblue'>" +
+                "</div>" +
+            "</div>" +
+            "<div class='out'>" +
+                "<div id='wave' class='wave'>" +
+                    "<p><span id='horizontallinenum' style='font-size: 14px'>80</span>%</p>" +
+                "</div>" +
+            "</div>" +
+        "</div>" +
+        "</div>" +
+        "</div>";
+    document.body.innerHTML+=PokeMon;
+
+})();
+
 //拖动球
-var dateStart,dateEnd,starw,starh;
+var dateStart,dateEnd,starw,starh,wavebk,waveN;
 var FreeHeight=0;//这里可以调整高度
 var FreeWeight=0;//这里可以左右移动
+
 (function (event) {
     var obj=document.getElementById("pokemon");
     var flowMoveBox=document.getElementById("flowMoveBox");
     var objWH=obj.clientHeight;
     var horizontalLineNum=document.getElementById("horizontallinenum").innerText;
-    var flowIn=document.getElementById("flowin");
+    waveN=horizontalLineNum/100;
+    // var flowIn=document.getElementById("flowin");
     var allBk=document.getElementById("allbk");
     var bigBk=document.getElementById("bigbk");
     var pokemonboxInsideLeft=document.getElementById("pokemonboxInsideLeft");
@@ -21,19 +92,19 @@ var FreeWeight=0;//这里可以左右移动
     //初始位置居中
     var originalPlaceY=parseInt(window.innerHeight*0.13)+FreeHeight;//
     var originalPlaceYt=parseInt(window.innerHeight*0.87)-68-FreeHeight;
-    var originalPlaceX=parseInt(window.innerWidth*0.5)-316/2+FreeWeight;
+    var originalPlaceX=parseInt(window.innerWidth*0.5)-306/2+FreeWeight;
 
     var event = event || window.event;
     //隐藏
+
     function hiddenball() {
         if(obj.clientWidth==objWH){
-            allBk.style.opacity="0.4";
+            obj.style.opacity="0.4";
         }
     }
+    setTimeout(hiddenball,3000);
 
-    flowIn.style.top=(100-horizontalLineNum)+"%";
-
-    //focus blur
+    // flowIn.style.top=(100-horizontalLineNum)+"%";
     
     //判断是否第一次打开这个浏览器,并且保存位置
     if (localStorage.getItem('msgw')==null){
@@ -49,15 +120,18 @@ var FreeWeight=0;//这里可以左右移动
         obj.setAttribute("name","red");
         obj.className += " pokemonbox-bright-red";
         flowMoveBox.className = "pokemonbox-inside-right-bkred";
+        wavebk='img/waver.png';
 
     }else if(horizontalLineNum>20 && horizontalLineNum<=50){
         obj.setAttribute("name","yellow");
         obj.className += " pokemonbox-bright-yellow";
         flowMoveBox.className = "pokemonbox-inside-right-bkyellow";
+        wavebk='img/wavey.png';
     }else if(horizontalLineNum>50){
         obj.setAttribute("name","blue");
         obj.className += " pokemonbox-bright-blue";
         flowMoveBox.className = "pokemonbox-inside-right-bkblue";
+        wavebk='img/waveb.png';
     }
 
     //点击 开始
@@ -106,60 +180,25 @@ var FreeWeight=0;//这里可以左右移动
             if(obj.clientWidth==objWH){
 
                 obj.style.opacity="1";
-                $('.pokemonbox').css({left:originalPlaceX,top:originalPlaceYt});
-                $('#allbk').removeClass('bk');
-                $('.pokemonbox').css({
-                    'border':'1px solid #dfdfdf',
-                    'background':'#ffffff',
-                    'box-shadow':'0 5px 8px #dfdfdf',
-                    'height':'70px'
-                });
-                $('.out-border-circle').css({
-                    'display': 'block'
-                });
-                $('.pokemonbox-inside-right').css({
-                    'z-index':'200',
-                    'height':'53px',
-                    'width':'54px',
-                    'margin-top':'0px',
-                    'margin-right':'2px',
-                    'border':'1px solid #dfdfdf',
-                    'overflow':'hidden'
-                });
-                $('.pokemonbox').addClass('pokemonbox-big');
-                $('.pokemon-head-iframe').css({'position':'fixed','right':originalPlaceX+13,'bottom':originalPlaceY+50+'px','display':'block'});
-                $('.pokemonbox-inside-left').css('display','block');
-                $('.pokemonbox-inside-left').addClass('pokemonbox-inside-left-movie');
-                // $(window.frames[0].document).find('#textArea').bind('focus',function () {
-                //
-                // })
+                obj.style.left=originalPlaceX+"px";
+                obj.style.top=originalPlaceYt+"px";
+                document.getElementById("allbk").className="bkbase";
+                document.getElementsByClassName("pokemonbox")[0].style.border="1px solid #dfdfdf";
+                document.getElementsByClassName("pokemonbox-inside-right")[0].style.border="1px solid #dfdfdf";
+                document.getElementsByClassName("pokemonbox")[0].className +=" pokemonbox-big";
+                document.getElementsByClassName("pokemon-head-iframe")[0].style.display="block";
+                document.getElementsByClassName("pokemonbox-inside-left")[0].style.display="block";
+                document.getElementsByClassName("pokemonbox-inside-left")[0].className +=" pokemonbox-inside-left-movie";
             }else{
                 //判断张开后 点击是否在小圆球内
                 if(starw>0 && starw<60){
                     $('#allbk').addClass('bk');
-                    $('.pokemonbox').css({
-                        'border':'none',
-                        'background':'none',
-                        'box-shadow':'none',
-                        'height':'68px'
-                    });
-                    $('.pokemonbox-inside-right').css({
-                        'border':'none',
-                        'z-index':'200',
-                        'height':'52px',
-                        'width':'52px',
-                        'overflow':'hidden'
-                    });
-                    $('.out').css({
-                        'box-shadow': 'none'
-                    });
+                    document.getElementsByClassName("pokemonbox")[0].style.border="none";
+                    document.getElementsByClassName("pokemonbox-inside-right")[0].style.border="none";
+                    document.getElementsByClassName("out")[0].style.border="none";
+                    document.getElementsByClassName("pokemonbox-inside-left")[0].style.display="none";
+                    document.getElementsByClassName("pokemon-head-iframe")[0].style.display="none";
 
-                    $('.out-border-circle').css({
-                        'display': 'none'
-                    });
-           
-                    $('.pokemonbox-inside-left').css('display','none');
-                    $('.pokemon-head-iframe').css({'position':'fixed','right':originalPlaceX+13+'px','bottom':originalPlaceY+50+'px','display':'none'});
                     obj.style.left=localStorage.getItem('msgw')+'px';
                     obj.style.top=localStorage.getItem('msgh')+'px';
                     ballStyle=obj.getAttribute("name");
@@ -217,4 +256,85 @@ var FreeWeight=0;//这里可以左右移动
     });
     $('.pokemonbox-inside').click(function () {
     })
+})();
+
+
+(function () {
+    var wave = (function () {
+        var ctx;
+        var waveImage;
+        var canvasWidth;
+        var canvasHeight;
+        var needAnimate = false;
+
+        function init(callback) {
+            var wave = document.getElementById('wave');
+            var canvas = document.createElement('canvas');
+            if (!canvas.getContext) return;
+            ctx = canvas.getContext('2d');
+
+            canvasWidth = wave.offsetWidth;
+            canvasHeight = wave.offsetHeight;
+            canvas.setAttribute('width', canvasWidth);
+            canvas.setAttribute('height', canvasHeight);
+            wave.appendChild(canvas);
+            waveImage = new Image();
+            waveImage.onload = function () {
+                waveImage.onload = null;
+                callback();
+            }
+            waveImage.src = wavebk;
+        }
+
+        function animate() {
+            var waveX = 0;
+            var waveY = 0;
+            var waveX_min = -42;
+            var waveY_max = canvasHeight * waveN;
+            var requestAnimationFrame =
+                window.requestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback) {
+                    window.setTimeout(callback, 60000 / 60);
+                };
+
+            function loop() {
+                ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+                if (!needAnimate) return;
+                if (waveY < waveY_max) waveY += 1.5;
+                if (waveX < waveX_min) waveX = 0; else waveX -= 0.6;
+
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.beginPath();
+                ctx.arc(canvasWidth / 2, canvasHeight / 2, canvasHeight / 2, 0, Math.PI * 2, true);
+                ctx.closePath();
+                ctx.fill();
+                ctx.fillStyle = "#ffffff";
+                ctx.globalCompositeOperation = 'source-in';
+                ctx.drawImage(waveImage, waveX, canvasHeight - waveY);
+
+                requestAnimationFrame(loop);
+            }
+
+            loop();
+        }
+
+        function start() {
+            if (!ctx) return init(start);
+            needAnimate = true;
+            setTimeout(function () {
+                if (needAnimate) animate();
+            }, 100);
+        }
+
+        function stop() {
+            needAnimate = false;
+        }
+
+        return {start: start, stop: stop};
+    }());
+
+    wave.start();
 })();
